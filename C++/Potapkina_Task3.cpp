@@ -36,7 +36,7 @@ public:
         this->code = code;
     }
     virtual ostream& print (ostream &out) {
-        return out << "Произошла " << message;
+        return out << "Произошла " << message << ". Код ошибки: " << code << '\n';
     }
 };
 
@@ -51,7 +51,7 @@ public:
         this->filename = filename;
     }
     ostream& print (ostream &out) {
-        return out << "Произошла " << message << " с названием" << filename;
+        return out << "Произошла " << message << " с названием " << filename << ". Код ошибки: " << code << '\n';
     }
 };
 
@@ -490,9 +490,9 @@ int main() {
             try {
                 changeList();
             }
-            catch (int e) {
+            catch (int er) {
                 cin_clear();
-                switch(e) {
+                switch(er) {
                     case ZERO_DIVISION_ERROR: {
                         cerr << "Деление на ноль невозможно!";
                         break;
@@ -514,7 +514,7 @@ int main() {
                         break;
                     }
                 }
-                cerr << " Код ошибки: " << e << '\n';
+                cerr << " Код ошибки: " << er << '\n';
             }
             catch (memoryError &me) {
                 me.print(cerr);
@@ -527,11 +527,12 @@ int main() {
             if (! res) break;
         }
         while (true);
+
         cout << "Введите название файла, куда Вы хотите записать получившийся список: ";
         string filename;
         cin >> filename;
         ofstream out(filename);
-        if (! out) throw fileError();
+        if (! out) throw fileError(filename);
         v.print(out);
     }
     catch (fileError fe) {
