@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage {preamble}
+
+\begin{document}
+
+\author{}
+\title{Структуры данных и алгоритмы}
+\date{3 семестр, 2025}
+\maketitle
+
+Принципы ООП:
+\begin{enumerate}
+\item Абстракция;
+\item Инкапсуляция;
+\item Наследование (иерархия);
+\item Полиморфизм;
+\item Модульность.
+\end{enumerate}
+
+Объект "--- сущность, имеющвя чётко определённые границы и поведение.
+
+Класс "---  набор объектов, обладающих одинаковым набором характеристик и функционала.
+
+struct "--- все поля public.
+
+class "--- по умолчанию всё private, если не написано public.
+
+Виды полей:
+\begin{enumerate}
+\item private: может вызывать только сам объект;
+\item public: могут вызывать все.
+	\begin{itemize}
+	\item get;
+	\item set;
+	\item iterate;
+	\item конструктор (MyClass());
+	\item деструктор (~MyClass(), обычно содержится free, отвечающий за освобождение ресурсов.
+	\end{itemize}
+\item  protected: могут вызывать только потомки.
+\end{enumerate}
+
+Наследование:
+\begin{enumerate}
+\item is as "--- это разновидность того;
+\item part of "--- это часть того;
+\end{enumerate}
+
+class b: public a
+
+virtual "--- абстрактная функция (у потомков её можно переопределить)
+
+Множественное наследование всегда можно заменить другим видом иерархии (отношением агрегирования/это часть того). Ромбовидное наследование "--- плохо.
+
+Python "--- можно получить доступ к private методам!
+
+obj.i\_\_param "--- ошибка доступа.
+
+obj.\_\_SomeClass.\_\_param "--- получили доступ!
+
+static "--- переменная, одна на все объекты класса.
+
+Многозадачности не существует, если у нас один процессор.
+
+Приведение типов:
+\begin{itemize}
+\item static\_cast;
+\item reinterpret\_cast;
+\item dynamic\_cast "--- самый нормальный вариант (то, что нужно, или NULL).
+\end{itemize}
+
+\end{document}

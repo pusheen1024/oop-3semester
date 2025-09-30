@@ -1,0 +1,17 @@
+*
+!/**/
+!*.*
+Examples
+bin
+obj
+*.zip
+*.ttf
+*exe
+*.o
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.dvi
+_minted
+*.pdf
