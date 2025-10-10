@@ -19,7 +19,7 @@ class Program
     {
         for (int i = 0; i < arr.Length; i++)
         {
-            arr[i] = new int[i];
+            arr[i] = new int[2 * i];
             for (int j = 0; j < arr[i].Length; j++)
                 arr[i][j] = i + j;
         }

@@ -1,4 +1,4 @@
-﻿// Задание 4.11: Для каждого столбца найти номер последнего нечетного элемента и записать данные в новый массив.
+﻿// Задание 4.12: Для каждой строки найти номер первого отрицательного элемента и записать данные в новый массив.
 
 
 using System;
@@ -14,11 +14,17 @@ namespace ConsoleApplication
             for (int i = 0; i < n; i++)
             {
                 arr[i] = new int[n];
-                for (int j = 0; j < n; j++)
-                {
-                    Console.Write("a[{0},{1}] = ", i, j);
-                    arr[i][j] = int.Parse(Console.ReadLine());
-                }
+		Console.Write("a[{0}] = ", i); 
+                string input = Console.ReadLine();
+		string[] nums = input.Split();
+		if (nums.Length != n) 
+		{
+		    throw new IndexOutOfRangeException();
+		}
+		for (int j = 0; j < n; j++) 
+		{
+                    arr[i][j] = int.Parse(nums[j]);
+		}
             }
             return arr;
         }
@@ -39,12 +45,12 @@ namespace ConsoleApplication
             }
         }
 
-        static int LastOdd(int[] a) // Индекс последнего нечётного элемента в массиве (-1, если такого нет)
+        static int LastOdd(int[] a) // Индекс первого отрицательного элемента в массиве (-1, если такого нет)
         {
-            int nch = -1;
+            int neg = -1;
             for (int i = 0; i < a.Length; i++)
-                if (a[i] % 2 != 0) nch = i + 1;
-            return nch;
+                if (a[i] < 0 && neg == -1) neg = i + 1;
+            return neg;
         }
 
         static void Main()
@@ -68,6 +74,10 @@ namespace ConsoleApplication
             {
                 Console.WriteLine("Неверный формат ввода данных!");
             }
+	    catch (IndexOutOfRangeException) 
+	    {
+		Console.WriteLine("Некорректное количество элементов в строке!");
+	    }
             catch (OutOfMemoryException)
             {
                 Console.WriteLine("Недостаточно памяти для создания нового объекта!");
