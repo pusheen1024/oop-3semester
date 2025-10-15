@@ -14,17 +14,17 @@ namespace ConsoleApplication
             for (int i = 0; i < n; i++)
             {
                 arr[i] = new int[n];
-		Console.Write("a[{0}] = ", i); 
+				Console.Write("a[{0}] = ", i); 
                 string input = Console.ReadLine();
-		string[] nums = input.Split();
-		if (nums.Length != n) 
-		{
-		    throw new IndexOutOfRangeException();
-		}
-		for (int j = 0; j < n; j++) 
-		{
+				string[] nums = input.Split();
+				if (nums.Length != n) 
+				{
+		    		throw new IndexOutOfRangeException();
+				}
+				for (int j = 0; j < n; j++) 
+				{		
                     arr[i][j] = int.Parse(nums[j]);
-		}
+				}
             }
             return arr;
         }
@@ -74,10 +74,10 @@ namespace ConsoleApplication
             {
                 Console.WriteLine("Неверный формат ввода данных!");
             }
-	    catch (IndexOutOfRangeException) 
-	    {
-		Console.WriteLine("Некорректное количество элементов в строке!");
-	    }
+	   		catch (IndexOutOfRangeException) 
+	    	{
+				Console.WriteLine("Некорректное количество элементов в строке!");
+	    	}
             catch (OutOfMemoryException)
             {
                 Console.WriteLine("Недостаточно памяти для создания нового объекта!");
