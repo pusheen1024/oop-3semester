@@ -154,6 +154,10 @@ class Program {
 					Console.WriteLine("До свидания!");
 					break;
 				}
+				else {
+					Console.WriteLine("Некорректный выбор!");
+					continue;
+				}
 				Console.WriteLine("Точка после выполнения операции " + (string) p);
 			}
 			catch (OverflowException) {
