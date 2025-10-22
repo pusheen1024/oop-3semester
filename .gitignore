@@ -5,6 +5,7 @@ C++/*.txt
 Examples
 bin
 obj
+!C#/lab4_Potapkina_251/4_10/CalcLibrary/bin
 *.zip
 *.ttf
 *exe
